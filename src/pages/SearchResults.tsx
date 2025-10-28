@@ -20,6 +20,18 @@ const SearchResults = () => {
   const donholmPhases = ["Phase 1", "Phase 2", "Phase 4", "Phase 5"];
   const showDonholmPhases = location === "Donholm";
 
+  const eastleighSections = [
+    "Eastleigh 8",
+    "Eastleigh 6 Street",
+    "Jaamka",
+    "California",
+    "12Ka",
+    "Section 3",
+    "Ushirika",
+    "Pangani"
+  ];
+  const showEastleighSections = location === "Eastleigh";
+
   return (
     <div className="min-h-screen bg-background">
       <div className="sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border z-10">
@@ -59,6 +71,28 @@ const SearchResults = () => {
                 >
                   <span className="font-semibold">Donholm</span>
                   <span className="text-sm text-muted-foreground">{phase}</span>
+                </Button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {showEastleighSections && (
+          <div className="mb-8 p-6 bg-card border border-border rounded-lg">
+            <div className="flex items-center gap-2 mb-4">
+              <MapPin className="w-5 h-5 text-primary" />
+              <h2 className="text-xl font-semibold">Select Eastleigh Section</h2>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {eastleighSections.map((section) => (
+                <Button
+                  key={section}
+                  variant="outline"
+                  className="h-auto py-4 flex flex-col gap-1"
+                  onClick={() => navigate(`/eastleigh/${encodeURIComponent(section)}`)}
+                >
+                  <span className="font-semibold">Eastleigh</span>
+                  <span className="text-sm text-muted-foreground">{section}</span>
                 </Button>
               ))}
             </div>

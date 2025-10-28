@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import SearchResults from "./pages/SearchResults";
 import PropertyDetail from "./pages/PropertyDetail";
 import DonholmPhase from "./pages/DonholmPhase";
+import EastleighSection from "./pages/EastleighSection";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/search" element={<SearchResults />} />
           <Route path="/property/:id" element={<PropertyDetail />} />
           <Route path="/donholm/:phase" element={<DonholmPhase />} />
+          <Route path="/eastleigh/:section" element={<EastleighSection />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
