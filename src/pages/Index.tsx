@@ -3,26 +3,27 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { LOCATIONS, BEDROOMS } from "@/data/properties";
-import { MapPin, Bed, Search } from "lucide-react";
+import { MapPin, Bed, Search, Home } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import heroImage from "@/assets/hero-property.jpg";
 
 const Index = () => {
   const [selectedLocation, setSelectedLocation] = useState<string>("");
   const [selectedBedrooms, setSelectedBedrooms] = useState<number | "">("");
+  const [selectedType, setSelectedType] = useState<string>("");
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    if (!selectedLocation || selectedBedrooms === "") {
+    if (!selectedLocation || selectedBedrooms === "" || !selectedType) {
       toast({
         title: "Please complete your search",
-        description: "Select both location and number of bedrooms to continue",
+        description: "Select location, bedrooms, and property type to continue",
         variant: "destructive",
       });
       return;
     }
 
-    navigate(`/search?location=${selectedLocation}&bedrooms=${selectedBedrooms}`);
+    navigate(`/search?location=${selectedLocation}&bedrooms=${selectedBedrooms}&type=${selectedType}`);
   };
 
   return (
@@ -98,6 +99,38 @@ const Index = () => {
                     {bedroom} Bedroom{bedroom > 1 ? "s" : ""}
                   </Button>
                 ))}
+              </div>
+            </div>
+
+            {/* Property Type Filter */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-2 text-lg font-semibold">
+                <Home className="w-5 h-5 text-primary" />
+                <h2>Property Type</h2>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <Button
+                  variant="filter"
+                  onClick={() => setSelectedType("rental")}
+                  className={
+                    selectedType === "rental"
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : ""
+                  }
+                >
+                  Rental
+                </Button>
+                <Button
+                  variant="filter"
+                  onClick={() => setSelectedType("furnished")}
+                  className={
+                    selectedType === "furnished"
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : ""
+                  }
+                >
+                  Furnished
+                </Button>
               </div>
             </div>
 
