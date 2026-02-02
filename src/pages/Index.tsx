@@ -118,7 +118,7 @@ const Index = () => {
                       : ""
                   }
                 >
-                  Kiro/Rental
+                  Kiro/Rent
                 </Button>
                 <Button
                   variant="filter"
