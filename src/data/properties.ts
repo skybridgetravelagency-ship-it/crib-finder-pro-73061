@@ -10,17 +10,16 @@ export interface Property {
 }
 
 export const LOCATIONS = [
-  "Parklands",
   "Eastleigh",
+  "Parklands",
   "Fedha",
   "Donholm",
   "South C",
   "South B",
-  "Karen",
   "Syokimau",
 ] as const;
 
-export const BEDROOMS = [1, 2, 3, 4] as const;
+export const BEDROOMS = [0, 1, 2, 3, 4, 5] as const; // 0 = Bedsitter
 
 export const properties: Property[] = [
   {
@@ -35,11 +34,11 @@ export const properties: Property[] = [
   },
   {
     id: "2",
-    location: "Karen",
+    location: "Parklands",
     bedrooms: 4,
     price: "KSh 120,000/month",
     images: ["property-1.jpg", "property-1.jpg", "property-1.jpg"],
-    description: "Luxurious 4-bedroom house in Karen with spacious compound and modern amenities. Perfect for families seeking comfort and security.",
+    description: "Luxurious 4-bedroom apartment in Parklands with spacious layout and modern amenities.",
     amenities: ["Water Available", "Duqsi Available", "Lift Available", "Parking Available"],
     contactPhone: "+254116733496",
   },
@@ -105,12 +104,12 @@ export const properties: Property[] = [
   },
   {
     id: "9",
-    location: "Karen",
+    location: "Syokimau",
     bedrooms: 3,
     price: "KSh 95,000/month",
     images: ["property-1.jpg", "property-1.jpg", "property-1.jpg"],
-    description: "Elegant 3-bedroom townhouse in Karen with private garden and modern finishes throughout.",
-    amenities: ["Water Available", "Duqsi Available", "Lift Available", "Parking Available"],
+    description: "Elegant 3-bedroom townhouse in Syokimau with modern finishes throughout.",
+    amenities: ["Water Available", "Parking Available"],
     contactPhone: "+254116733496",
   },
   {
@@ -295,22 +294,22 @@ export const properties: Property[] = [
   },
   {
     id: "28",
-    location: "Karen",
+    location: "South B",
     bedrooms: 1,
     price: "KSh 55,000/month",
     images: ["property-3.jpg", "property-3.jpg", "property-3.jpg"],
-    description: "Upscale 1-bedroom cottage in Karen with serene environment.",
-    amenities: ["Water Available", "Duqsi Available", "Lift Available", "Parking Available"],
+    description: "Upscale 1-bedroom apartment in South B with serene environment.",
+    amenities: ["Water Available", "Duqsi Available", "Parking Available"],
     contactPhone: "+254116733496",
   },
   {
     id: "29",
-    location: "Karen",
+    location: "Donholm",
     bedrooms: 2,
     price: "KSh 78,000/month",
     images: ["property-4.jpg", "property-4.jpg", "property-4.jpg"],
-    description: "Beautiful 2-bedroom bungalow in Karen with lush gardens.",
-    amenities: ["Water Available", "Duqsi Available", "Lift Available", "Parking Available"],
+    description: "Beautiful 2-bedroom apartment in Donholm with modern finishes.",
+    amenities: ["Water Available", "Duqsi Available", "Parking Available"],
     contactPhone: "+254116733496",
   },
   {
