@@ -60,17 +60,17 @@ const Index = () => {
                 <MapPin className="w-5 h-5 text-primary" />
                 <h2>Select Location</h2>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {LOCATIONS.map((location) => (
+              <div className="grid grid-cols-2 gap-3">
+                {LOCATIONS.map((location, index) => (
                   <Button
                     key={location}
                     variant="filter"
                     onClick={() => setSelectedLocation(location)}
-                    className={
+                    className={`${
                       selectedLocation === location
                         ? "border-primary bg-primary text-primary-foreground"
                         : ""
-                    }
+                    } ${index === 0 ? "col-span-2" : ""}`}
                   >
                     {location}
                   </Button>
@@ -84,7 +84,7 @@ const Index = () => {
                 <Bed className="w-5 h-5 text-primary" />
                 <h2>Number of Bedrooms</h2>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 gap-3">
                 {BEDROOMS.map((bedroom) => (
                   <Button
                     key={bedroom}
@@ -96,7 +96,7 @@ const Index = () => {
                         : ""
                     }
                   >
-                    {bedroom} Bedroom{bedroom > 1 ? "s" : ""}
+                    {bedroom === 0 ? "Bedsitter" : `${bedroom} Bedroom${bedroom > 1 ? "s" : ""}`}
                   </Button>
                 ))}
               </div>
@@ -108,29 +108,44 @@ const Index = () => {
                 <Home className="w-5 h-5 text-primary" />
                 <h2>Property Type</h2>
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                <Button
-                  variant="filter"
-                  onClick={() => setSelectedType("rental")}
-                  className={
-                    selectedType === "rental"
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : ""
-                  }
-                >
-                  Kiro/Rent
-                </Button>
-                <Button
-                  variant="filter"
-                  onClick={() => setSelectedType("furnished")}
-                  className={
-                    selectedType === "furnished"
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : ""
-                  }
-                >
-                  Furnished
-                </Button>
+              <div className="space-y-3">
+                <div className="grid grid-cols-2 gap-3">
+                  <Button
+                    variant="filter"
+                    onClick={() => setSelectedType("rental")}
+                    className={
+                      selectedType === "rental"
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : ""
+                    }
+                  >
+                    Kiro/Rent
+                  </Button>
+                  <Button
+                    variant="filter"
+                    onClick={() => setSelectedType("furnished")}
+                    className={
+                      selectedType === "furnished"
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : ""
+                    }
+                  >
+                    Furnished
+                  </Button>
+                </div>
+                <div className="flex justify-center">
+                  <Button
+                    variant="filter"
+                    onClick={() => setSelectedType("sale")}
+                    className={`px-8 ${
+                      selectedType === "sale"
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : ""
+                    }`}
+                  >
+                    Homes for Sale
+                  </Button>
+                </div>
               </div>
             </div>
 
